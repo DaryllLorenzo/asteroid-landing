@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroid</title>
+    
+    <!-- Copiar toda la carpeta assets -->
+    <link data-trunk rel="copy-dir" href="assets" />
+    
+    <!-- CSS -->
+    <link data-trunk rel="css" href="styles.css" />
+    
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+
+    <!-- Rust/WASM -->
+    <link data-trunk rel="rust" data-wasm-opt="z" />
+    
+    <!-- Script para GitHub stars -->
+    <script>
+        // Obtener estrellas del repositorio
+        async function updateGitHubStars() {
+            try {
+                const response = await fetch('https://api.github.com/repos/DaryllLorenzo/asteroid');
+                const data = await response.json();
+                const starCount = data.stargazers_count;
+                const starsElement = document.getElementById('github-stars');
+                if (starsElement) {
+                    starsElement.textContent = starCount.toLocaleString();
+                }
+            } catch (error) {
+                console.log('No se pudieron cargar las estrellas de GitHub');
+                const starsElement = document.getElementById('github-stars');
+                if (starsElement) {
+                    starsElement.textContent = "0";
+                }
+            }
+        }
+        
+        // Actualizar al cargar la página
+        document.addEventListener('DOMContentLoaded', updateGitHubStars);
+    </script>
+</head>
+<body>
+</body>
+</html>

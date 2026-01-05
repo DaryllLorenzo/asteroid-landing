@@ -1,0 +1,20 @@
+[package]
+name = "asteroid-landing"
+version = "0.1.0"
+edition = "2024"
+authors = ["Daryll Lorenzo <daryllla77@gmail.com>"]
+description = "Landing page for Asteroid - Tropos methodology modeling app"
+repository = "https://github.com/DaryllLorenzo/asteroid"
+license = "MIT"
+
+[dependencies]
+# development version of Yew
+yew = { version = "0.22, features = ["csr"] }
+web-sys = { version = "0.3", features = [
+    "Window",
+    "Document",
+    "HtmlElement",
+    "Element",
+    "MediaQueryList",
+    "MediaQueryListEvent",
+] }

@@ -1,0 +1,55 @@
+# ===== RUST =====
+# Dependencias de Cargo
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# Rustdoc
+/doc/
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de Rust específicos
+*.pdb
+*.d
+
+# ===== TRUNK =====
+# Directorio de distribución de Trunk
+/dist/
+
+# ===== RUST MISC =====
+# Resultados de coverage
+/coverage/
+*.profraw
+
+# Archivos de debug
+*.exe
+*.out
+*.so
+
+# ===== SISTEMA =====
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# ===== PROYECTO ESPECÍFICO =====
+# Si usas variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE temporal
+.history/
