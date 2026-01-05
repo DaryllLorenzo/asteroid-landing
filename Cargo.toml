@@ -9,7 +9,7 @@ license = "MIT"
 
 [dependencies]
 # development version of Yew
-yew = { version = "0.22, features = ["csr"] }
+yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 web-sys = { version = "0.3", features = [
     "Window",
     "Document",
