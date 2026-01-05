@@ -5,7 +5,6 @@ edition = "2024"
 authors = ["Daryll Lorenzo <daryllla77@gmail.com>"]
 description = "Landing page for Asteroid - Tropos methodology modeling app"
 repository = "https://github.com/DaryllLorenzo/asteroid"
-license = "MIT"
 
 [dependencies]
 # development version of Yew
