@@ -111,7 +111,7 @@ impl Component for LandingPage {
                     <section id="downloads" class="downloads">
                         <h2>{"Descarga Asteroid"}</h2>
                         <div class="download-options">
-                            <a href="https://github.com/DaryllLorenzo/asteroid/releases/windows" class="download-card windows">
+                            <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.1.0/asteroid.exe" class="download-card windows">
                                 <div class="os-icon">{"🪟"}</div>
                                 <div class="download-info">
                                     <h3>{"Windows"}</h3>
@@ -119,7 +119,7 @@ impl Component for LandingPage {
                                 </div>
                                 <div class="download-cta">{"Descargar"}</div>
                             </a>
-                            <a href="https://github.com/DaryllLorenzo/asteroid/releases/linux" class="download-card linux">
+                            <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.1.0/asteroid_0.1.0_amd64.deb" class="download-card linux">
                                 <div class="os-icon">{"🐧"}</div>
                                 <div class="download-info">
                                     <h3>{"Linux"}</h3>
