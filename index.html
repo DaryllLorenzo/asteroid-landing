@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroid</title>
+
+    <base href="/asteroid-landing/" />
+    
+    <!-- Copiar toda la carpeta assets -->
+    
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/asteroid-landing/styles-b64d3f3acad41c06.css" integrity="sha384-RqzSRq+j4mTp1F5KktafWfTYAcib2yzyb/V2cBMZ4glnvQWBWJ5If3lpjbaH+4Te"/>
+    
+    <link rel="icon" href="assets/icon.png" type="image/png" />
+
+    <!-- Rust/WASM -->
+    
+<script type="module">
+import init, * as bindings from '/asteroid-landing/asteroid-landing-84c046d439b3b07b.js';
+const wasm = await init({ module_or_path: '/asteroid-landing/asteroid-landing-84c046d439b3b07b_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    
+    <!-- Script para GitHub stars -->
+    <script>
+        // Obtener estrellas del repositorio
+        async function updateGitHubStars() {
+            try {
+                const response = await fetch('https://api.github.com/repos/DaryllLorenzo/asteroid');
+                const data = await response.json();
+                const starCount = data.stargazers_count;
+                const starsElement = document.getElementById('github-stars');
+                if (starsElement) {
+                    starsElement.textContent = starCount.toLocaleString();
+                }
+            } catch (error) {
+                console.log('No se pudieron cargar las estrellas de GitHub');
+                const starsElement = document.getElementById('github-stars');
+                if (starsElement) {
+                    starsElement.textContent = "0";
+                }
+            }
+        }
+        
+        // Actualizar al cargar la página
+        document.addEventListener('DOMContentLoaded', updateGitHubStars);
+    </script>
+<link rel="modulepreload" href="/asteroid-landing/asteroid-landing-84c046d439b3b07b.js" crossorigin="anonymous" integrity="sha384-MOPkkT6ndjArtSFgEfaKNVjG2Qt8d5FapEeoNSzkhIBqO2jt7jDPrCqZcB2/cyKu"><link rel="preload" href="/asteroid-landing/asteroid-landing-84c046d439b3b07b_bg.wasm" crossorigin="anonymous" integrity="sha384-XlfveXANpah8vFwY+3fzQhN9shYJNeaSIG4RkpvG2vHqkKGL7mCoVtVu+Sh95Mda" as="fetch" type="application/wasm"></head>
+<body>
+</body>
+</html>
