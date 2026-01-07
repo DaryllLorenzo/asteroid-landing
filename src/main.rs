@@ -63,7 +63,7 @@ impl Component for LandingPage {
                 <header class="header">
                     <div class="logo-container">
                         <img 
-                            src="/assets/icon.png" 
+                            src="assets/icon.png" 
                             alt="Asteroid Icon" 
                             class="app-icon"
                         />

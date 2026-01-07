@@ -20,7 +20,7 @@ jobs:
         run: cargo install trunk
 
       - name: Build with Trunk
-        run: trunk build --release
+        run: trunk build --release --public-url /asteroid-landing/
 
       - name: Add .nojekyll
         run: touch dist/.nojekyll
