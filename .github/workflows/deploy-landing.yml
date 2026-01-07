@@ -13,6 +13,8 @@ jobs:
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
+        with:
+          target: wasm32-unknown-unknown
 
       - name: Install Trunk
         run: cargo install trunk
@@ -20,9 +22,13 @@ jobs:
       - name: Build with Trunk
         run: trunk build --release
 
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+          force_orphan: true
