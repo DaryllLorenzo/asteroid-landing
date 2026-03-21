@@ -98,7 +98,7 @@ impl Component for LandingPage {
                             <div class="feature-card">
                                 <div class="feature-icon">{"📦"}</div>
                                 <h3>{"Portable"}</h3>
-                                <p>{"Ejecutable en Windows y Linux sin instalación compleja. Fácil de desplegar y usar."}</p>
+                                <p>{"Ejecutable en Windows, Linux y MacOS sin instalación compleja. Fácil de desplegar y usar."}</p>
                             </div>
                             <div class="feature-card">
                                 <div class="feature-icon">{"🖼️"}</div>
@@ -115,7 +115,7 @@ impl Component for LandingPage {
                                 <div class="os-icon">{"🪟"}</div>
                                 <div class="download-info">
                                     <h3>{"Windows"}</h3>
-                                    <p>{"v1.0.0"}</p>
+                                    <p>{"v0.2.0"}</p>
                                 </div>
                                 <div class="download-cta">{"Descargar"}</div>
                             </a>
@@ -123,12 +123,20 @@ impl Component for LandingPage {
                                 <div class="os-icon">{"🐧"}</div>
                                 <div class="download-info">
                                     <h3>{"Linux"}</h3>
-                                    <p>{"v1.0.0"}</p>
+                                    <p>{"v0.2.0"}</p>
+                                </div>
+                                <div class="download-cta">{"Descargar"}</div>
+                            </a>
+                            <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/Asteroid.app.zip" class="download-card macos">
+                                <div class="os-icon">{"🍎"}</div>
+                                <div class="download-info">
+                                    <h3>{"macOS"}</h3>
+                                    <p>{"v0.2.0"}</p>
                                 </div>
                                 <div class="download-cta">{"Descargar"}</div>
                             </a>
                         </div>
-                        <p class="compatibility">{"Disponible para Windows 10/11 y distribuciones Linux de 64-bit."}</p>
+                        <p class="compatibility">{"Disponible para Windows 10/11, distribuciones Linux de 64-bit y app bundle para macos."}</p>
                     </section>
                 </main>
 

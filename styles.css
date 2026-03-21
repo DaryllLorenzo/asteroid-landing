@@ -224,7 +224,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto 2rem;
 }
 
@@ -418,6 +418,12 @@ main {
   .features-grid .feature-card:nth-child(3) {
     grid-column: span 1;
     max-width: 280px;
+  }
+
+  .download-options {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    gap: 2rem;
   }
   
   .features h2, .downloads h2 {
