@@ -127,7 +127,7 @@ impl Component for LandingPage {
                                 </div>
                                 <div class="download-cta">{"Descargar"}</div>
                             </a>
-                            <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/Asteroid.app.zip" class="download-card macos">
+                            <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.app.zip" class="download-card macos">
                                 <div class="os-icon">{"🍎"}</div>
                                 <div class="download-info">
                                     <h3>{"macOS"}</h3>
