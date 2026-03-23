@@ -3,46 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asteroid</title>
-
-    <base href="/asteroid-landing/" />
     
-    <!-- Copiar toda la carpeta assets -->
-    <link data-trunk rel="copy-dir" href="assets" />
+    <!-- Título y meta básicos -->
+    <title>Asteroid - Modelado Tropos, simplificado</title>
+    <meta name="description" content="Asteroid es una herramienta gratuita para modelado Tropos. Diseña, analiza y visualiza sistemas complejos. Descarga para Windows, Linux y Mac.">
+    <meta name="keywords" content="Tropos, modelado, requisitos, software engineering, asteroid tool, análisis de sistemas">
+    <meta name="author" content="Daryll Lorenzo">
+    <meta name="robots" content="index, follow">
     
-    <!-- CSS -->
-    <link data-trunk rel="css" href="styles.css" />
+    <!-- Canonical (evita duplicados) -->
+    <link rel="canonical" href="https://darylllorenzo.github.io/asteroid-landing/">
     
-    <link rel="icon" href="assets/icon.png" type="image/png" />
-
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://darylllorenzo.github.io/asteroid-landing/">
+    <meta property="og:title" content="Asteroid - Modelado Tropos, simplificado">
+    <meta property="og:description" content="Herramienta intuitiva para diseñar, analizar y visualizar sistemas complejos con la metodología Tropos.">
+    <meta property="og:image" content="https://darylllorenzo.github.io/asteroid-landing/assets/icon.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Asteroid - Modelado Tropos">
+    <meta name="twitter:description" content="Diseña, analiza y visualiza sistemas complejos con Asteroid.">
+    <meta name="twitter:image" content="https://darylllorenzo.github.io/asteroid-landing/assets/icon.png">
+    
+    <!-- Base para rutas relativas (necesario para GitHub Pages) -->
+    <base href="/asteroid-landing/">
+    
+    <!-- Recursos estáticos -->
+    <link data-trunk rel="copy-dir" href="assets">
+    <link data-trunk rel="css" href="styles.css">
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    
     <!-- Rust/WASM -->
-    <link data-trunk rel="rust" data-wasm-opt="z" />
+    <link data-trunk rel="rust" data-wasm-opt="z">
     
-    <!-- Script para GitHub stars -->
+    <!-- Script para GitHub stars (mejorado) -->
     <script>
-        // Obtener estrellas del repositorio
         async function updateGitHubStars() {
+            const starsElement = document.getElementById('github-stars');
+            if (!starsElement) return;
             try {
                 const response = await fetch('https://api.github.com/repos/DaryllLorenzo/asteroid');
+                if (!response.ok) throw new Error();
                 const data = await response.json();
-                const starCount = data.stargazers_count;
-                const starsElement = document.getElementById('github-stars');
-                if (starsElement) {
-                    starsElement.textContent = starCount.toLocaleString();
-                }
+                starsElement.textContent = data.stargazers_count?.toLocaleString() || "0";
             } catch (error) {
-                console.log('No se pudieron cargar las estrellas de GitHub');
-                const starsElement = document.getElementById('github-stars');
-                if (starsElement) {
-                    starsElement.textContent = "0";
-                }
+                starsElement.textContent = "0";
+                console.debug('No se pudieron cargar las estrellas de GitHub');
             }
         }
-        
-        // Actualizar al cargar la página
         document.addEventListener('DOMContentLoaded', updateGitHubStars);
     </script>
 </head>
 <body>
+    <!-- Contenedor donde se montará la app Yew -->
+    <div id="app">
+        <!-- Contenido estático de respaldo (se mostrará mientras carga el Wasm o si el JS falla) -->
+        <div class="app-container light">
+            <header class="header">
+                <div class="logo-container">
+                    <img src="assets/icon.png" alt="Asteroid Icon" class="app-icon">
+                    <div class="logo">ASTEROID</div>
+                </div>
+                <nav class="nav">
+                    <a href="#hero">Inicio</a>
+                    <a href="#features">Características</a>
+                    <a href="#downloads">Descargas</a>
+                </nav>
+            </header>
+            <main>
+                <section id="hero" class="hero">
+                    <div class="hero-content">
+                        <h1>Modelado Tropos, simplificado.</h1>
+                        <p>Asteroid lleva la poderosa metodología Tropos a tu escritorio. Una herramienta intuitiva para diseñar, analizar y visualizar sistemas complejos.</p>
+                    </div>
+                </section>
+                <section id="features" class="features">
+                    <h2>¿Por qué Asteroid?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Fiel a Tropos</h3>
+                            <p>Implementa los conceptos clave de la metodología (actores, metas, dependencias).</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>Portable</h3>
+                            <p>Ejecutable en Windows, Linux y MacOS sin instalación compleja. Fácil de desplegar y usar.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🖼️</div>
+                            <h3>Exportable</h3>
+                            <p>Guarda tus modelos en formato .astr o exporta como imágenes .png para compartir.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="downloads" class="downloads">
+                    <h2>Descarga Asteroid</h2>
+                    <div class="download-options">
+                        <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.exe" class="download-card windows">
+                            <div class="os-icon">🪟</div>
+                            <div class="download-info">
+                                <h3>Windows</h3>
+                                <p>v0.2.0</p>
+                            </div>
+                            <div class="download-cta">Descargar</div>
+                        </a>
+                        <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0_amd64.deb" class="download-card linux">
+                            <div class="os-icon">🐧</div>
+                            <div class="download-info">
+                                <h3>Linux</h3>
+                                <p>v0.2.0</p>
+                            </div>
+                            <div class="download-cta">Descargar</div>
+                        </a>
+                        <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.app.zip" class="download-card macos">
+                            <div class="os-icon">🍎</div>
+                            <div class="download-info">
+                                <h3>macOS</h3>
+                                <p>v0.2.0</p>
+                            </div>
+                            <div class="download-cta">Descargar</div>
+                        </a>
+                    </div>
+                    <p class="compatibility">Disponible para Windows 10/11, distribuciones Linux de 64-bit y app bundle para macos.</p>
+                </section>
+            </main>
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="copyright">© 2025 Asteroid Project. Creado por Daryll Lorenzo.</div>
+                    <div class="social-links">
+                        <div class="github-stats">
+                            <a href="https://github.com/DaryllLorenzo/asteroid" target="_blank" class="github-link" aria-label="GitHub Repository">
+                                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span class="repo-name">asteroid</span>
+                            </a>
+                            <div class="stars">
+                                <span class="star-icon">⭐</span>
+                                <span class="star-count" id="github-stars">...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
 </body>
 </html>

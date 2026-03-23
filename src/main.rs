@@ -168,5 +168,11 @@ impl Component for LandingPage {
 
 
 fn main() {
-    yew::Renderer::<LandingPage>::new().render();
+    let element = web_sys::window()
+        .unwrap()
+        .document()
+        .unwrap()
+        .get_element_by_id("app")
+        .unwrap();
+    yew::Renderer::<LandingPage>::with_root(element).render();
 }
