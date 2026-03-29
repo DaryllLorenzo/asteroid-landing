@@ -369,8 +369,10 @@ main { margin-top: var(--header-h); }
 }
 
 .os-icon {
-  font-size: 1.75rem;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .download-info { flex: 1; }

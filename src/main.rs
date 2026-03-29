@@ -169,7 +169,7 @@ impl Component for LandingPage {
                             <div class="download-grid">
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.exe"
                                    class="download-card">
-                                    <span class="os-icon">{"🪟"}</span>
+                                    <img src="assets/windows11-original.svg" alt="Windows" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"Windows"}</h3>
                                         <p>{"Windows 10 / 11"}</p>
@@ -178,7 +178,7 @@ impl Component for LandingPage {
                                 </a>
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0_amd64.deb"
                                    class="download-card">
-                                    <span class="os-icon">{"🐧"}</span>
+                                    <img src="assets/linux-original.svg" alt="Linux" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"Linux"}</h3>
                                         <p>{"64-bit .deb"}</p>
@@ -187,7 +187,7 @@ impl Component for LandingPage {
                                 </a>
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.app.zip"
                                    class="download-card">
-                                    <span class="os-icon">{"🍎"}</span>
+                                    <img src="assets/apple-original.svg" alt="macOS" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"macOS"}</h3>
                                         <p>{"App bundle .zip"}</p>
