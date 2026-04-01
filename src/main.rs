@@ -136,6 +136,7 @@ impl Component for LandingPage {
                     <nav class="mobile-nav">
                         <a href="#hero"      onclick={scroll("hero")}>{"Inicio"}</a>
                         <a href="#features"  onclick={scroll("features")}>{"Características"}</a>
+                        <a href="#demo"      onclick={scroll("demo")}>{"Demo"}</a>
                         <a href="#downloads" onclick={scroll("downloads")}>{"Descargas"}</a>
                     </nav>
                 </div>
