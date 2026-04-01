@@ -1,5 +1,6 @@
 use yew::prelude::*;
 use web_sys::window;
+use js_sys;
 
 enum Msg {
     ToggleTheme,
@@ -24,6 +25,26 @@ impl Component for LandingPage {
         Self {
             dark_mode: prefers_dark,
             menu_open: false,
+        }
+    }
+
+    fn rendered(&mut self, _ctx: &Context<Self>, first_render: bool) {
+        if first_render {
+            let _ = js_sys::eval(r#"
+                (function() {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                e.target.classList.add('visible');
+                                observer.unobserve(e.target);
+                            }
+                        });
+                    }, { threshold: 0.12 });
+                    document.querySelectorAll('.fade-up').forEach(function(el) {
+                        observer.observe(el);
+                    });
+                })();
+            "#);
         }
     }
 
@@ -122,16 +143,18 @@ impl Component for LandingPage {
                     // Hero
                     <section id="hero" class="hero">
                         <div class="hero-inner">
-                            <p class="hero-eyebrow">{"Modelado Tropos"}</p>
-                            <h1>
+                            <p class="hero-eyebrow fade-up" style="transition-delay: 0ms;">
+                                {"Modelado Tropos"}
+                            </p>
+                            <h1 class="fade-up" style="transition-delay: 80ms;">
                                 {"Diseña sistemas"}
                                 <br/>
                                 {"complejos con claridad."}
                             </h1>
-                            <p class="hero-sub">
+                            <p class="hero-sub fade-up" style="transition-delay: 160ms;">
                                 {"Asteroid lleva la metodología Tropos a tu escritorio. Actores, metas y dependencias en una herramienta intuitiva y portable."}
                             </p>
-                            <a href="#downloads" class="cta-btn" onclick={scroll("downloads")}>
+                            <a href="#downloads" class="cta-btn fade-up" style="transition-delay: 240ms;" onclick={scroll("downloads")}>
                                 {"Descargar gratis"}
                             </a>
                         </div>
@@ -140,19 +163,19 @@ impl Component for LandingPage {
                     // Features
                     <section id="features" class="features">
                         <div class="section-inner">
-                            <h2>{"¿Por qué Asteroid?"}</h2>
+                            <h2 class="fade-up" style="transition-delay: 0ms;">{"¿Por qué Asteroid?"}</h2>
                             <div class="features-grid">
-                                <div class="feature-card">
+                                <div class="feature-card fade-up" style="transition-delay: 0ms;">
                                     <div class="feature-icon">{"🎯"}</div>
                                     <h3>{"Fiel a Tropos"}</h3>
                                     <p>{"Implementa actores, metas y dependencias según la metodología, sin atajos."}</p>
                                 </div>
-                                <div class="feature-card">
+                                <div class="feature-card fade-up" style="transition-delay: 100ms;">
                                     <div class="feature-icon">{"📦"}</div>
                                     <h3>{"Portable"}</h3>
                                     <p>{"Binario único para Windows, Linux y macOS. Sin instaladores ni dependencias."}</p>
                                 </div>
-                                <div class="feature-card">
+                                <div class="feature-card fade-up" style="transition-delay: 200ms;">
                                     <div class="feature-icon">{"🖼️"}</div>
                                     <h3>{"Exportable"}</h3>
                                     <p>{"Guarda en formato .astr o exporta como .png para presentar tu modelo."}</p>
@@ -164,11 +187,14 @@ impl Component for LandingPage {
                     // Downloads
                     <section id="downloads" class="downloads">
                         <div class="section-inner">
-                            <h2>{"Descarga Asteroid"}</h2>
-                            <p class="section-sub">{"v0.2.0 — Windows, Linux y macOS"}</p>
+                            <h2 class="fade-up" style="transition-delay: 0ms;">{"Descarga Asteroid"}</h2>
+                            <p class="section-sub fade-up" style="transition-delay: 60ms;">
+                                {"v0.2.0 — Windows, Linux y macOS"}
+                            </p>
                             <div class="download-grid">
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.exe"
-                                   class="download-card">
+                                   class="download-card fade-up"
+                                   style="transition-delay: 0ms;">
                                     <img src="assets/windows11-original.svg" alt="Windows" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"Windows"}</h3>
@@ -177,7 +203,8 @@ impl Component for LandingPage {
                                     <span class="dl-arrow">{"↓"}</span>
                                 </a>
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0_amd64.deb"
-                                   class="download-card">
+                                   class="download-card fade-up"
+                                   style="transition-delay: 80ms;">
                                     <img src="assets/linux-original.svg" alt="Linux" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"Linux"}</h3>
@@ -186,7 +213,8 @@ impl Component for LandingPage {
                                     <span class="dl-arrow">{"↓"}</span>
                                 </a>
                                 <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.app.zip"
-                                   class="download-card">
+                                   class="download-card fade-up"
+                                   style="transition-delay: 160ms;">
                                     <img src="assets/apple-original.svg" alt="macOS" class="os-icon" />
                                     <div class="download-info">
                                         <h3>{"macOS"}</h3>
@@ -198,6 +226,7 @@ impl Component for LandingPage {
                         </div>
                     </section>
                 </main>
+
                 <footer class="footer">
                     <div class="footer-inner">
                         <span class="footer-copy">{"© 2025 Asteroid Project · Daryll Lorenzo"}</span>

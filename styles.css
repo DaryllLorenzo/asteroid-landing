@@ -294,11 +294,21 @@ main { margin-top: var(--header-h); }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
-  transition: box-shadow 0.2s, transform 0.2s, background 0.25s, border-color 0.25s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s,
+    background 0.25s,
+    border-color 0.25s,
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .feature-card:hover {
   box-shadow: var(--shadow);
   transform: translateY(-2px);
+}
+
+/* Override hover transform when card hasn't appeared yet */
+.feature-card.fade-up:not(.visible):hover {
+  transform: translateY(28px);
 }
 
 .feature-icon {
@@ -360,12 +370,22 @@ main { margin-top: var(--header-h); }
   border-radius: var(--radius);
   text-decoration: none;
   color: var(--text);
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s, background 0.25s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    transform 0.15s,
+    background 0.25s,
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .download-card:hover {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
   transform: translateY(-1px);
+}
+
+/* Override hover transform when card hasn't appeared yet */
+.download-card.fade-up:not(.visible):hover {
+  transform: translateY(28px);
 }
 
 .os-icon {
@@ -446,7 +466,22 @@ main { margin-top: var(--header-h); }
   color: var(--text-muted);
 }
 
-/* Tablet+ (640px) */
+/* ── Fade-up scroll animation ───────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tablet+ (640px) ────────────────────────────────────── */
 @media (min-width: 640px) {
   .nav-desktop         { display: flex; }
   .nav-mobile-controls { display: none; }
@@ -470,7 +505,7 @@ main { margin-top: var(--header-h); }
   }
 }
 
-/* Desktop (960px) */
+/* ── Desktop (960px) ────────────────────────────────────── */
 @media (min-width: 960px) {
   .hero      { padding: 8rem 1.25rem 7rem; }
   .features  { padding: 5.5rem 0; }
