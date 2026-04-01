@@ -99,6 +99,7 @@ impl Component for LandingPage {
                         <nav class="nav-desktop">
                             <a href="#hero"      onclick={scroll("hero")}>{"Inicio"}</a>
                             <a href="#features"  onclick={scroll("features")}>{"Características"}</a>
+                            <a href="#demo"      onclick={scroll("demo")}>{"Demo"}</a>
                             <a href="#downloads" onclick={scroll("downloads")}>{"Descargas"}</a>
                             <button
                                 class="theme-toggle"
@@ -179,6 +180,44 @@ impl Component for LandingPage {
                                     <div class="feature-icon">{"🖼️"}</div>
                                     <h3>{"Exportable"}</h3>
                                     <p>{"Guarda en formato .astr o exporta como .png para presentar tu modelo."}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    // Demo
+                    <section id="demo" class="demo">
+                        <div class="section-inner">
+                            <h2 class="fade-up" style="transition-delay: 0ms;">
+                                {"Mira Asteroid en acción"}
+                            </h2>
+                            <p class="section-sub fade-up" style="transition-delay: 60ms;">
+                                {"Demos rápidas de las funcionalidades principales"}
+                            </p>
+
+                            <div class="demo-grid">
+                                <div class="demo-card fade-up" style="transition-delay: 0ms;">
+                                    <video class="demo-video" autoplay=true loop=true muted=true playsinline=true>
+                                        <source src="assets/videos/video1.mp4" type="video/mp4" />
+                                    </video>
+                                    <h3>{"Actores"}</h3>
+                                    <p>{"Canvas de comportamiento de los actores y sus metas."}</p>
+                                </div>
+
+                                <div class="demo-card fade-up" style="transition-delay: 100ms;">
+                                    <video class="demo-video" autoplay=true loop=true muted=true playsinline=true>
+                                        <source src="assets/videos/video2.mp4" type="video/mp4" />
+                                    </video>
+                                    <h3>{"Relaciones de comportamiento"}</h3>
+                                    <p>{"Enlaces entre elementos de comportamiento: metas, planes, recursos y links de Tropos."}</p>
+                                </div>
+
+                                <div class="demo-card fade-up" style="transition-delay: 200ms;">
+                                    <video class="demo-video" autoplay=true loop=true muted=true playsinline=true>
+                                        <source src="assets/videos/video3.mp4" type="video/mp4" />
+                                    </video>
+                                    <h3>{"Dependencias entre actores"}</h3>
+                                    <p>{"Relaciones de dependencia entre actores y agentes."}</p>
                                 </div>
                             </div>
                         </div>
