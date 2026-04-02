@@ -229,10 +229,10 @@ impl Component for LandingPage {
                         <div class="section-inner">
                             <h2 class="fade-up" style="transition-delay: 0ms;">{"Descarga Asteroid"}</h2>
                             <p class="section-sub fade-up" style="transition-delay: 60ms;">
-                                {"v0.2.0 — Windows, Linux y macOS"}
+                                {"v0.3.0 — Windows, Linux y macOS"}
                             </p>
                             <div class="download-grid">
-                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.exe"
+                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.3.0/asteroid_0.3.0.exe"
                                    class="download-card fade-up"
                                    style="transition-delay: 0ms;">
                                     <img src="assets/windows11-original.svg" alt="Windows" class="os-icon" />
@@ -242,7 +242,7 @@ impl Component for LandingPage {
                                     </div>
                                     <span class="dl-arrow">{"↓"}</span>
                                 </a>
-                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0_amd64.deb"
+                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.3.0/asteroid_0.3.0_amd64.deb"
                                    class="download-card fade-up"
                                    style="transition-delay: 80ms;">
                                     <img src="assets/linux-original.svg" alt="Linux" class="os-icon" />
@@ -252,7 +252,7 @@ impl Component for LandingPage {
                                     </div>
                                     <span class="dl-arrow">{"↓"}</span>
                                 </a>
-                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.2.0/asteroid_0.2.0.app.zip"
+                                <a href="https://github.com/DaryllLorenzo/Asteroid/releases/download/v0.3.0/asteroid_0.3.0.app.zip"
                                    class="download-card fade-up"
                                    style="transition-delay: 160ms;">
                                     <img src="assets/apple-original.svg" alt="macOS" class="os-icon" />
