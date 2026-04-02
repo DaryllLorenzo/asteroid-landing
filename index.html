@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título y meta básicos -->
+    <title>Asteroid - Modelado Tropos, simplificado</title>
+    <meta name="description" content="Asteroid es una herramienta gratuita para modelado Tropos. Diseña, analiza y visualiza sistemas complejos. Descarga para Windows, Linux y Mac.">
+    <meta name="keywords" content="Tropos, modelado, requisitos, software engineering, asteroid tool, análisis de sistemas">
+    <meta name="author" content="Daryll Lorenzo">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical (evita duplicados) -->
+    <link rel="canonical" href="https://darylllorenzo.github.io/asteroid-landing/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://darylllorenzo.github.io/asteroid-landing/">
+    <meta property="og:title" content="Asteroid - Modelado Tropos, simplificado">
+    <meta property="og:description" content="Herramienta intuitiva para diseñar, analizar y visualizar sistemas complejos con la metodología Tropos.">
+    <meta property="og:image" content="https://darylllorenzo.github.io/asteroid-landing/assets/icon.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Asteroid - Modelado Tropos">
+    <meta name="twitter:description" content="Diseña, analiza y visualiza sistemas complejos con Asteroid.">
+    <meta name="twitter:image" content="https://darylllorenzo.github.io/asteroid-landing/assets/icon.png">
+    
+    <!-- Base para rutas relativas (necesario para GitHub Pages) -->
+    <base href="/asteroid-landing/">
+    
+    <!-- Recursos estáticos -->
+    
+    <link rel="stylesheet" href="/asteroid-landing/styles-565a508d699cd970.css" integrity="sha384-RnmpUitxSVFjJY8Q5/1d0zqYhIsvkyoqEVhYBxcG/cDFoLzB0Ke9wmu5YzQAmfQM"/>
+    <link rel="icon" href="assets/icon.png" type="image/png">
+    
+    <!-- Rust/WASM -->
+    
+<script type="module">
+import init, * as bindings from '/asteroid-landing/asteroid-landing-fe41673f1cc1e8e1.js';
+const wasm = await init({ module_or_path: '/asteroid-landing/asteroid-landing-fe41673f1cc1e8e1_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    
+    <!-- Script para GitHub stars (mejorado) -->
+    <script>
+      async function fetchAndSetStars() {
+        const el = document.getElementById('github-stars');
+        if (!el) return false;
+        try {
+          const res = await fetch('https://api.github.com/repos/DaryllLorenzo/asteroid');
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          el.textContent = (data.stargazers_count ?? 0).toLocaleString();
+        } catch {
+          el.textContent = '0';
+        }
+        return true;
+      }
+    
+      // Reintenta cada 200ms hasta encontrar el elemento (máx 10s)
+      const interval = setInterval(async () => {
+        const done = await fetchAndSetStars();
+        if (done) clearInterval(interval);
+      }, 200);
+      setTimeout(() => clearInterval(interval), 10000);
+    </script>
+<link rel="modulepreload" href="/asteroid-landing/asteroid-landing-fe41673f1cc1e8e1.js" crossorigin="anonymous" integrity="sha384-6/PN8BM+CYvBRVwBeS/g2QEXnefGOQPwebyhxfTEReHPihsHR8M/9rUDyjq+e9uz"><link rel="preload" href="/asteroid-landing/asteroid-landing-fe41673f1cc1e8e1_bg.wasm" crossorigin="anonymous" integrity="sha384-L2w8n00FFP7ISy7I9pq7W2NrH7m2AodoMw+3L05SZJ8PToIH81K7MgOIm1WvgU8m" as="fetch" type="application/wasm"></head>
+<body>
+    <!-- Contenedor donde se montará la app Yew -->
+    <div id="app">
+    </div>
+</body>
+</html>
